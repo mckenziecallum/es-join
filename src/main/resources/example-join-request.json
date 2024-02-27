@@ -1,0 +1,28 @@
+{
+  "join": {
+    "left": {
+      "index": "", // Can use wildcards
+      "field": "", // Field to join on
+      "query": {
+        ... es query
+      },
+      "include": ["field1"] // required
+    },
+    "right": {
+      "index": "", // Can use wildcards
+      "field": "", // Field to join on
+      "query": {
+        ... es query
+      },
+      "include": [
+        {
+          "field": "field1",
+          "alias": "right_field1"
+        }
+      ]
+    },
+    "type": "inner left right outer"
+  },
+  "query": // Could this be used to filter the results in memory?
+  "size": // Should this be required?
+}

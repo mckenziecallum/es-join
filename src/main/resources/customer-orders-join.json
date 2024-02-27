@@ -1,0 +1,38 @@
+{
+  "join": {
+    "left": {
+      "index": "customers",
+      "field": "id",
+      "query": {
+        "match_all": {}
+      },
+      "include": [
+        {
+          "field": "id",
+          "alias": "customerId"
+        },
+        {
+          "field": "name"
+        }
+      ]
+    },
+    "right": {
+      "index": "orders",
+      "field": "customerId",
+      "query": {
+        "match_all": {}
+      },
+      "include": [
+        {
+          "field": "id",
+          "alias": "orderId"
+        },
+        {
+          "field": "item"
+        }
+      ]
+    },
+    "type": "inner",
+    "size": 1000
+  }
+}
